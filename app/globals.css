@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Segoe UI", "Avenir Next", -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, ui-sans-serif,
+    sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "Courier New", monospace;
+  --background: 222 47% 4%;
+  --foreground: 210 40% 98%;
+  --card: 222 40% 7%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 40% 6%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 190 95% 60%;
+  --primary-foreground: 222 47% 4%;
+  --secondary: 255 80% 70%;
+  --secondary-foreground: 222 47% 4%;
+  --muted: 222 30% 14%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 190 95% 60%;
+  --accent-foreground: 222 47% 4%;
+  --destructive: 350 89% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 222 30% 18%;
+  --input: 222 30% 16%;
+  --ring: 190 95% 60%;
+  --radius: 0.85rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at 50% -10%, rgba(55, 230, 255, 0.08), transparent 55%),
+    radial-gradient(circle at 90% 10%, rgba(124, 92, 255, 0.08), transparent 45%), #05060a;
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Glass panel utility */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(55, 230, 255, 0.6), rgba(124, 92, 255, 0.4), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(55, 230, 255, 0.35);
+}
+
+.neon-ring {
+  box-shadow: 0 0 0 1px rgba(55, 230, 255, 0.25), 0 0 40px -8px rgba(55, 230, 255, 0.45);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 230, 255, 0.4);
+}
+
+.prose-zarvis {
+  color: hsl(var(--foreground));
+}
+.prose-zarvis pre {
+  background: #0b0f1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prose-zarvis code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+.prose-zarvis p {
+  margin: 0.65em 0;
+  line-height: 1.7;
+}
+.prose-zarvis ul,
+.prose-zarvis ol {
+  margin: 0.65em 0;
+  padding-left: 1.4em;
+}
+.prose-zarvis a {
+  color: #37e6ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
